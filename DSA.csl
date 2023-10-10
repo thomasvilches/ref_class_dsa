@@ -109,7 +109,7 @@ aparecera a expess o 'et. al.'. Na regra da ABNT essa expressao deve aparecer em
 do autor. Na regra da ABNT o sobrenome deve aparecer com todas as letras em caixa alta-->
   <macro name="author-short">
     <names variable="author">
-      <name form="short" name-as-sort-order="all" sort-separator=", " initialize-with=". " delimiter="; " delimiter-precedes-last="never">
+      <name form="short" name-as-sort-order="all" sort-separator=", " initialize-with=". " delimiter=" e " delimiter-precedes-last="never">
         <name-part name="family" text-case="capitalize-first"/>
         <name-part name="given" text-case="capitalize-first"/>
       </name>
@@ -345,10 +345,11 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
     <layout prefix="(" suffix=")" delimiter="; ">
       <!-- Entre parênteses separando os autores com ponto-e-vírgula -->
     <group>
-      <names variable="author">
+      <text suffix=", " macro="author-short"/>
+      <names variable="author-short">
         <name and="text" delimiter=" e "/>
         <!-- Aqui definimos o "e" entre os autores -->
-        <name and="symbol" symbol="amp" />
+        <!--<name and="symbol" symbol="e" />-->
       </names>
       <text macro="issued-year"/>
       <text prefix=", " macro="citation-locator"/>
