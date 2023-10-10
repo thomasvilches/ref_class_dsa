@@ -343,14 +343,16 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
       <!--Depois o ano-->
     </sort>
     <layout prefix="(" suffix=")" delimiter="; ">
-      <!--Entre parenteses separando os autores com ponto-e-virgula-->
-      <group>
-        <text suffix=", " macro="author-short"/>
+      <!-- Entre parênteses separando os autores com ponto-e-vírgula -->
+    <group>
+      <names variable="author">
         <name and="text" delimiter=" e "/>
-        <!--Seperando os autores das datas usando virgula-->
-        <text macro="issued-year"/>
-        <text prefix=", " macro="citation-locator"/>
-      </group>
+        <!-- Aqui definimos o "e" entre os autores -->
+        <name and="symbol" symbol="amp" />
+      </names>
+      <text macro="issued-year"/>
+      <text prefix=", " macro="citation-locator"/>
+    </group>
     </layout>
   </citation>
   <!--Bibliografia-->
